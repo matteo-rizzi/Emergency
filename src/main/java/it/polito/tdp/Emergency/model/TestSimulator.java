@@ -17,7 +17,7 @@ public class TestSimulator {
 		System.out.format("Pazienti:     %d\n", sim.getPazientiTot());
 		System.out.format("Dimessi:      %d\n", sim.getPazientiDimessi());
 		System.out.format("Morti:        %d\n", sim.getPazientiMorti());
-		System.out.format("Abbandonano:  %d\n", sim.getPazientiAbbandonano());
+		System.out.format("Abbandonano:  %d\n", sim.getPazientiAbbandonano()); 
 	}
 
 }

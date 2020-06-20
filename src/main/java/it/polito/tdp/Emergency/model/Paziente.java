@@ -4,31 +4,26 @@ import java.time.LocalTime;
 
 /**
  * Rappresenta le informazioni su ciascun paziente nel sistema
- * @author Fulvio
+ * 
+ * @author Rizzi
  *
  */
-public class Paziente implements Comparable<Paziente>{
-	
+public class Paziente implements Comparable<Paziente> {
+
 	public enum CodiceColore {
-		UNKNOWN, // non lo so ancora perché il paziente non ancora finito il triage
-		WHITE,
-		YELLOW,
-		RED,
-		BLACK,
-		OUT,
+		UNKNOWN, // non lo so ancora perché il paziente non ha ancora finito il triage
+		WHITE, YELLOW, RED, BLACK, OUT
 	}
-	
-	private LocalTime oraArrivo ;
-	private CodiceColore colore ;
-	/**
-	 * @param oraArrivo
-	 * @param colore
-	 */
+
+	private LocalTime oraArrivo;
+	private CodiceColore colore;
+
 	public Paziente(LocalTime oraArrivo, CodiceColore colore) {
 		super();
 		this.oraArrivo = oraArrivo;
 		this.colore = colore;
 	}
+
 	public LocalTime getOraArrivo() {
 		return oraArrivo;
 	}
@@ -36,30 +31,24 @@ public class Paziente implements Comparable<Paziente>{
 	public CodiceColore getColore() {
 		return colore;
 	}
+
 	public void setColore(CodiceColore colore) {
 		this.colore = colore;
 	}
+
 	@Override
 	public int compareTo(Paziente other) {
-		if(this.colore==other.colore) {
+		if (this.colore == other.colore)
 			return this.oraArrivo.compareTo(other.oraArrivo);
-		} else if(this.colore==CodiceColore.RED) {
-			return -1 ;
-		} else if(other.colore==CodiceColore.RED) {
-			return +1 ;
-		} else if(this.colore==CodiceColore.YELLOW) {
-			return -1 ;
-		} else if(other.colore==CodiceColore.YELLOW) {
-			return +1 ;
-		}
+		else if (this.colore == CodiceColore.RED)
+			return -1;
+		else if (other.colore == CodiceColore.RED)
+			return +1;
+		else if (this.colore == CodiceColore.YELLOW)
+			return -1;
+		else if (other.colore == CodiceColore.YELLOW)
+			return +1;
 		
-		throw new RuntimeException("Comparator<Persona> failed") ;
+		throw new RuntimeException("Comparator<Persona> failed");
 	}
-	@Override
-	public String toString() {
-		return "Paziente [" + oraArrivo + ", " + colore + "]";
-	}
-	
-	
-	
 }
